@@ -3,7 +3,7 @@ import React from 'react';
 const About = () => {
     return (
         <h1>
-            AAAAAA
+            My Data Base Project :)
         </h1>
     );
 };
