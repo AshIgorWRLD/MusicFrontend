@@ -2,8 +2,9 @@ import React from 'react';
 import {useEffect, useState} from "react";
 import MyInput from "../UI/input/MyInput";
 import MyButton from "../UI/buttons/MyButton";
+import MyInputWithVariants from "../UI/input/MyInputWithVariants";
 
-const ClientForm = ({create, edit, clients, editedClientId}) => {
+const ClientForm = ({create, edit, clients, users, editedClientId}) => {
 
     const [client, setClient] = useState({id: '', userId: '', type: ''})
 
@@ -26,9 +27,10 @@ const ClientForm = ({create, edit, clients, editedClientId}) => {
 
     return (
         <form>
-            <MyInput
+            <MyInputWithVariants
                 value={client.userId}
                 onChange={e => setClient({...client, userId: e.target.value})}
+                content={users}
                 type="text"
                 placeholder="User id"
             />

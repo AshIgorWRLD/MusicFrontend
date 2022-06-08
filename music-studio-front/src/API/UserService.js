@@ -12,6 +12,11 @@ export default class UserService {
         return response
     }
 
+    static async getAllNoPagination() {
+        const response = await axios.get('http://localhost:8080/ynmusic/users/no_pagination')
+        return response
+    }
+
     static async getById(id) {
         const response = await axios.get('http://localhost:8080/ynmusic/users/' + id)
         return response

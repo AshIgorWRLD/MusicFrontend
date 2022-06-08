@@ -9,7 +9,7 @@ const ArtistItem = (props) => {
     return (
         <div className="post">
             <div className="post_content">
-                <strong>{props.artist.id}. Type: {props.artist.stageName}</strong>
+                <strong>{props.artist.id}. Name: {props.artist.stageName}</strong>
             </div>
             <div className="post_btns">
                 <MyButton onClick={()=> props.openEditModal(props.artist.id)}>

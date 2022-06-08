@@ -11,9 +11,11 @@ import ClientForm from "../../components/client/ClientForm";
 import ClientFilter from "../../components/client/ClientFilter";
 import ClientList from "../../components/client/ClientList";
 import {useClients} from "../../hooks/useClients";
+import UserService from "../../API/UserService";
 
 const Clients = () => {
     const [clients, setClients] = useState([])
+    const [users, setUsers] = useState([])
     const [filter, setFilter] = useState({sort: '', query: ''})
     const [modal, setModal] = useState(false);
     const [totalPages, setTotalPages] = useState(0)
@@ -29,6 +31,9 @@ const Clients = () => {
         const response = await ClientService.getAll(limit, page-1)
         console.log(response.data)
         setClients([...clients, ...response.data.content])
+        const userResponse = await UserService.getAllNoPagination()
+        console.log('userResponse',userResponse.data)
+        setUsers([...users, ...userResponse.data])
         const totalCount = response.headers['x-total-count']
         setTotalPages(getPageCount(response.data.totalElements, response.data.size))
     })
@@ -74,7 +79,7 @@ const Clients = () => {
                 Add client
             </MyButton>
             <MyModal visible={modal} setVisible={setModal}>
-                <ClientForm create={createClient} edit={editClient} clients={clients} editedClientId={editedClientId}/>
+                <ClientForm create={createClient} edit={editClient} clients={clients} users={users} editedClientId={editedClientId}/>
             </MyModal>
             <hr style={{margin: '15px 0'}}/>
             <ClientFilter filter={filter} setFilter={setFilter}/>

@@ -9,7 +9,7 @@ const ClientItem = (props) => {
     return (
         <div className="post">
             <div className="post_content">
-                <strong>{props.client.id}. Type: {props.client.type}</strong>
+                <strong>{props.client.id}. Name: {props.client.user?.name}, Type: {props.client.type}</strong>
             </div>
             <div className="post_btns">
                 <MyButton onClick={()=> props.openEditModal(props.client.id)}>
