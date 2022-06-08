@@ -25,6 +25,8 @@ const ClientForm = ({create, edit, clients, users, editedClientId}) => {
         setClient({id: '', userId: '', type: ''})
     }
 
+    console.log(client.userId)
+
     return (
         <form>
             <MyInputWithVariants
