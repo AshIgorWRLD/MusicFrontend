@@ -5,7 +5,7 @@ import MyButton from "../UI/buttons/MyButton";
 
 const GroupForm = ({create, edit, groups, editedGroupId}) => {
 
-    const [group, setGroup] = useState({id: '',name: '', creationDate: '', artistId: ''})
+    const [group, setGroup] = useState({id: '',name: '', creationDate: ''})
     useEffect(() => {
         if(editedGroupId) {
             setGroup(groups.find((group) => group.id === editedGroupId))
@@ -19,7 +19,7 @@ const GroupForm = ({create, edit, groups, editedGroupId}) => {
             ...group
         }
         create(newGroup)
-        setGroup({id: '',name: '', creationDate: '', artistId: ''})
+        setGroup({id: '',name: '', creationDate: ''})
     }
 
     return (
@@ -36,13 +36,7 @@ const GroupForm = ({create, edit, groups, editedGroupId}) => {
                 type="text"
                 placeholder="Group creation date"
             />
-            <MyInput
-                value={group.artistId}
-                onChange={e => setGroup({...group, artistId: e.target.value})}
-                type="text"
-                placeholder="Artist id"
-            />
-            <MyButton onClick={editedGroupId ? () => edit(group) : addNewGroup}>Make group</MyButton>
+            <MyButton onClick={editedGroupId ? () => edit(group) : addNewGroup}>Push group</MyButton>
         </form>
     );
 };

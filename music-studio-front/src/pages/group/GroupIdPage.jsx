@@ -1,10 +1,10 @@
-import React from 'react';
 import {useParams} from "react-router-dom";
 import {useEffect, useState} from "react";
-import {useFetching} from "../hooks/useFetching";
-import Loader from "../components/UI/loader/Loader";
-import GroupService from "../API/GroupService";
-import MyButton from "../components/UI/buttons/MyButton";
+import {useFetching} from "../../hooks/useFetching";
+import GroupService from "../../API/GroupService";
+import Loader from "../../components/UI/loader/Loader";
+import MyButton from "../../components/UI/buttons/MyButton";
+
 
 const GroupIdPage = () => {
     const params = useParams()
@@ -22,14 +22,16 @@ const GroupIdPage = () => {
 
     return (
         <div>
-            <h1>User {params.id} page</h1>
+            <h1 style={{padding: 10}}>User {params.id} page</h1>
             {isLoading
                 ? <Loader/>
                 :
-                <div>{group.id}. Name:{group.name} Creation Date:{group.creationDate}
-                    <MyButton onClick={() => setShowArtists(!showArtists)}>
-                        Show artists
-                    </MyButton>
+                <div style={{padding: 10}}>{group.id}. Name:{group.name} Creation Date:{group.creationDate}
+                    <div style={{alignContent: "center", padding: 10}}>
+                        <MyButton onClick={() => setShowArtists(!showArtists)}>
+                            Show artists
+                        </MyButton>
+                    </div>
                     {showArtists &&
                         <div>
                             <h1>Members</h1>

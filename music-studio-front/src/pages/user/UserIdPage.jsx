@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import {useParams} from 'react-router-dom'
-import {useFetching} from "../hooks/useFetching";
-import Loader from "../components/UI/loader/Loader";
-import UserService from "../API/UserService";
+import {useFetching} from "../../hooks/useFetching";
+import Loader from "../../components/UI/loader/Loader";
+import UserService from "../../API/UserService";
 const UserIdPage = () => {
     const params = useParams()
     const [user, setUser] = useState('')

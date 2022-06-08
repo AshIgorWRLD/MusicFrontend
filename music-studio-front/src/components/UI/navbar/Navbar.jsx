@@ -18,7 +18,16 @@ const Navbar = () => {
             </MyButton>
             <div className="navbar_links">
                 <Link to="/about">About</Link>
-                <Link to="/posts">Posts</Link>
+                <a> | </a>
+                <Link to="/users">Users</Link>
+                <a> | </a>
+                <Link to="/clients">Clients</Link>
+                <a> | </a>
+                <Link to="/artists">Artists</Link>
+                <a> | </a>
+                <Link to="/groups">Groups</Link>
+                <a> | </a>
+                <Link to="/events">Events</Link>
             </div>
         </div>
     );

@@ -17,13 +17,13 @@ export default class GroupService {
         return response
     }
 
-    static async post(name, creationDate, artistId) {
-        const response = await axios.post('http://localhost:8080/ynmusic/groups',{name, creationDate, artistId})
+    static async post(name, creationDate) {
+        const response = await axios.post('http://localhost:8080/ynmusic/groups',{name, creationDate})
         return response
     }
 
-    static async put(id, name, creationDate, artistId) {
-        const response = await axios.put('http://localhost:8080/ynmusic/groups/' + id,{name, creationDate, artistId})
+    static async put(id, name, creationDate) {
+        const response = await axios.put('http://localhost:8080/ynmusic/groups/' + id,{name, creationDate})
         return response
     }
 

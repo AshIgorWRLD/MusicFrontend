@@ -41,7 +41,7 @@ const UserForm = ({create, edit, users, editedUserId}) => {
                 type="text"
                 placeholder="User password"
             />
-            <MyButton onClick={editedUserId ? () => edit(user) : addNewUser}>Make post</MyButton>
+            <MyButton onClick={editedUserId ? () => edit(user) : addNewUser}>Push user</MyButton>
         </form>
     );
 };

@@ -12,10 +12,10 @@ export const useSortedGroups = (groups, sort) => {
 }
 
 export const useGroups = (groups, sort, query) => {
-    const sortedUsers = useSortedGroups(groups, sort)
+    const sortedGroups = useSortedGroups(groups, sort)
     const sortedAndSearchedGroups = useMemo(() => {
-        return sortedUsers.filter(group => group.name.includes(query))
-    }, [query, sortedUsers])
+        return sortedGroups.filter(group => group.name.includes(query))
+    }, [query, sortedGroups])
 
     return sortedAndSearchedGroups;
 }

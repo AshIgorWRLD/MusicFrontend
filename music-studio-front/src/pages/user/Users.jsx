@@ -1,18 +1,17 @@
-import React from 'react';
-import MyButton from "../components/UI/buttons/MyButton";
-import MyModal from "../components/UI/my_modal/MyModal";
-import PostFilter from "../components/PostFilter";
-import MySelect from "../components/UI/select/MySelect";
-import Loader from "../components/UI/loader/Loader";
-import Pagination from "../components/UI/pagination/Pagination";
-import {useEffect, useRef, useState} from "react";
-import {useFetching} from "../hooks/useFetching";
-import {getPageCount} from "../utils/pages";
-import {useObserver} from "../hooks/useObserver";
-import {useUsers} from "../hooks/UseUsers";
-import UserForm from "../components/user/UserForm";
-import UserList from "../components/user/UserList";
-import UserService from "../API/UserService";
+import React, {useEffect, useRef, useState} from 'react';
+import MyButton from "../../components/UI/buttons/MyButton";
+import MyModal from "../../components/UI/my_modal/MyModal";
+import MySelect from "../../components/UI/select/MySelect";
+import Loader from "../../components/UI/loader/Loader";
+import Pagination from "../../components/UI/pagination/Pagination";
+import {useFetching} from "../../hooks/useFetching";
+import {getPageCount} from "../../utils/pages";
+import {useObserver} from "../../hooks/useObserver";
+import {useUsers} from "../../hooks/useUsers";
+import UserForm from "../../components/user/UserForm";
+import UserList from "../../components/user/UserList";
+import UserService from "../../API/UserService";
+import UserFilter from "../../components/user/UserFilter";
 
 const Users = () => {
 
@@ -80,20 +79,10 @@ const Users = () => {
                 <UserForm create={createUser} edit={editUser} users={users} editedUserId={editedUserId}/>
             </MyModal>
             <hr style={{margin: '15px 0'}}/>
-            <PostFilter filter={filter} setFilter={setFilter}/>
+            <UserFilter filter={filter} setFilter={setFilter}/>
             {userError &&
                 <h1>Произошла ошибка ${userError}</h1>
             }
-            <MySelect
-                value={limit}
-                onChange={value => setLimit(value)}
-                defaultValue="Elements on page"
-                options={[
-                    {value: 5, name: '5'},
-                    {value: 10, name: '10'},
-                    {value: -1, name: 'Show all'}
-                ]}
-            />
             <UserList remove={removeUser} users={sortedAndSearchedUsers} title="Users" openEditModal={openEditModal}/>
             <div ref={lastElement} style={{height: 20, background: 'darkcyan'}}></div>
             {isUsersLoading

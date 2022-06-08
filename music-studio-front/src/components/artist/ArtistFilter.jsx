@@ -1,8 +1,8 @@
 import React from 'react';
-import MyInput from "./UI/input/MyInput";
-import MySelect from "./UI/select/MySelect";
+import MyInput from "../UI/input/MyInput";
+import MySelect from "../UI/select/MySelect";
 
-const PostFilter = ({filter, setFilter}) => {
+const ArtistFilter = ({filter, setFilter}) => {
     return (
         <div>
             <MyInput
@@ -15,12 +15,11 @@ const PostFilter = ({filter, setFilter}) => {
                 onChange={selectedSort => setFilter({...filter, sort: selectedSort})}
                 defaultValue="Sort"
                 options={[
-                    {value: 'title', name: 'by name'},
-                    {value: 'body', name: 'by description'}
+                    {value: 'stageName', stageName: 'by stageName'}
                 ]}
             />
         </div>
     );
 };
 
-export default PostFilter;
+export default ArtistFilter;

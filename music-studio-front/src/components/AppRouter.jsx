@@ -24,7 +24,7 @@ const AppRouter = () => {
                     />
                 )}
 
-                <Redirect to="/posts"/>
+                <Redirect to="/users"/>
             </Switch>
             :
             <Switch>
